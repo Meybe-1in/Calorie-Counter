@@ -5,6 +5,7 @@ const entryDropdown = document.getElementById('entry-dropdown');
 const addEntryButton = document.getElementById('add-entry');
 const clearButton = document.getElementById('clear');
 const output = document.getElementById('output');
+// Global error flag
 let isError = false;
 
 function cleanInputString(str) {
@@ -31,4 +32,57 @@ function cleanInputString(str) {
       placeholder="Calories"
     />`;
     targetInputContainer.insertAdjacentHTML("beforeend",HTMLString);
+  }
+
+  function getCaloriesFromInputs(list) {
+    let calories = 0;
+    
+    for (let i = 0; i < list.length; i++) {
+      const currVal =  cleanInputString(list[i].value);
+      const invalidInputMatch = isInvalidInput(currVal);
+
+      if (invalidInputMatch){
+        alert(`Invalid Input: ${invalidInputMatch[0]}`);
+        isError = true;
+        return null;
+      }
+      calories += Number(currVal); 
+    }
+    return calories;
+
+    function calculateCalories(e) {
+      e.preventDefault();
+      isError = false;
+
+    // Call Inputs for various elements
+    // for breakfast
+      const breakfastNumberInputs = document.querySelectorAll('#breakfast input[type=number]');
+      const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+    // for luch
+      const lunchNumberInputs = document.querySelectorAll('#lunch input[type=number]');
+      const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
+    // for dinner
+      const dinnerNumberInputs = document.querySelectorAll('#dinner input[type=number]');
+      const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
+    // for snack
+      const snacksNumberInputs = document.querySelectorAll('#snacks input[type=number]');
+      const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
+    // for exercise
+      const exerciseNumberInputs = document.querySelectorAll('#exercise input[type=number]');
+      const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
+      
+    // Declare a budgetCalories variable and pass an array containing budgetNumberInput
+      const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
+      
+    // Check the truthiness of the global error flag
+      if (isError) {
+        // End the function execution
+        return calculateCalories();
+      }
+    // Declare a consumedCalories variable and assign it the sum
+      let consumedCalories = breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
+
+    
+    }
+
   }
