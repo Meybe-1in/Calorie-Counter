@@ -1,9 +1,9 @@
 :root {
     --light-grey: #f5f6f7;
-    --dark-blue: #190c20;
-    --fcc-blue: #281b32;
-    --light-yellow: #9059a4;
-    --dark-yellow: #a360bb;
+    --dark-blue: #403d42;
+    --fcc-purple: #d3b4eb;
+    --light-purple: #9059a4;
+    --dark-purple: #a360bb;
     --light-pink: #ffadad;
     --dark-red: #850000;
     --light-green: #acd157;
@@ -12,7 +12,7 @@
   body {
     font-family: "Lato", Helvetica, Arial, sans-serif;
     font-size: 18px;
-    background-color: var(--fcc-blue);
+    background-color: var(--fcc-purple);
     color: var(--light-grey);
   }
   
@@ -45,14 +45,29 @@
     outline: none;
     cursor: pointer;
     text-decoration: none;
-    background-color: var(--light-yellow);
-    border: 2px solid var(--dark-yellow);
+    background-color: var(--light-purple);
+    border: 2px solid var(--dark-purple);
+    border: none;
   }
   
   .clear {
     background-color: var(--light-pink);
     color: var(--dark-red);
     border-color: var(--dark-red);
+  }
+
+  #budget{
+    border: none;
+  }
+
+  input{
+    border: none;
+    border-bottom: 2px solid var(fcc-purple);
+  }
+
+  fieldset{
+    border: none;
+    border: 2px solid var(--light-purple);
   }
   
   button,
@@ -68,6 +83,12 @@
   input,
   select {
     margin-bottom: 10px;
+    border-radius: 5px;
+    
+  }
+  select {
+    border: none;
+    
   }
   
   .output {
