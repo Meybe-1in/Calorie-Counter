@@ -6,7 +6,7 @@ This repository contains a simple web application for tracking daily calorie int
 
 
 
-<img src="assets/calorieCounter.png" width="250" height="300">
+<img src="assets/calorieCounter.png" width="650" height="300">
 
 
 ## Used
